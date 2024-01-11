@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Perrito",
+    "description": "Muy tierno y peludo",
+    "price": 400,
+    "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
+    "code": "P001",
+    "stock": 5,
+    "id": 1
+  },
+  {
+    "title": "Gatito",
+    "description": "Bolita de pelo para amar",
+    "price": 450,
+    "thumbnail": "https://img.freepik.com/fotos-premium/lindo-gatito-gatito-bebe-animal_853115-5758.jpg",
+    "code": "P002",
+    "stock": 3,
+    "id": 2
+  },
+  {
+    "title": "Conejito",
+    "description": "Bolita de pelo saltarina y energica",
+    "price": 100,
+    "thumbnail": "https://www.tiendanimal.es/articulos/wp-content/uploads/2016/03/un-conejo-como-mascota-1200x900.jpg",
+    "code": "P004",
+    "stock": 40,
+    "id": 3
+  }
+]
