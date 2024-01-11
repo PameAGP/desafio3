@@ -1,39 +1,6 @@
 const fs = require('fs').promises;
 const express = require('express');
 
-const app = express();
-
-const PORT = 8080
-
-app.get('/', (req, res) => {
-  res.send('Al fin algo gráfico')
-})
-
-app.get('/bienvenida', (req, res) => {
-  res.send('<h1 style="color:blue"> BIENVENIDA <h1>')
-})
-
-app.get('/products', async (req, res) => {
-  const productManager = new ProductManager('productos.json');
-  const products = await productManager.getProducts();
-  res.send(products);
-});
-
-app.get('/product/:id', async (req, res) => {
-  const productManager = new ProductManager('productos.json');
-  const product = await productManager.getProducts();
-  console.log(req.params)
-  let idProd = req.params.id
-  let prodFind = product.find (product => {
-    return product.id == idProd
-  })
-
-  res.send (prodFind)
-});
-
-app.listen(PORT, () => {
-  console.log('Server run on port', PORT)
-})
 
 class ProductManager {
   constructor(path) {
@@ -70,15 +37,22 @@ class ProductManager {
 
 
   //Trae los productos del JSON
-  async getProducts() {
+  async getProducts(limit) {
     try {
       const data = await fs.readFile(this.path, 'utf8');
-      return JSON.parse(data);
+      const allProducts = JSON.parse(data);
+
+      if (limit) {
+        return allProducts.slice(0, limit);
+      } else {
+        return allProducts;
+      }
     } catch (error) {
       console.error('Error al leer el archivo:', error);
       return [];
     }
   }
+
 
   //Busca productos por ID
   async getProductById(id) {
@@ -86,12 +60,12 @@ class ProductManager {
     const product = products.find(p => p.id === id);
 
     if (!product) {
-      console.error('No se encontró el producto cuyo ID es: ', id);
+      console.error('No se encontró el producto buscado cuyo ID es: ', id);
     }
 
     return product;
   }
-
+  
   //Actualizar datos de un producto específico
   async updateProduct(id, updatedFields) {
     const products = await this.getProducts();
@@ -105,7 +79,7 @@ class ProductManager {
 
       console.log(`Producto con ID ${id} actualizado correctamente.`);
     } else {
-      console.error('No se encontró el producto cuyo ID es: ', id);
+      console.error('No se encontró el producto para actualizar cuyo ID es: ', id);
     }
   }
 
@@ -119,7 +93,7 @@ class ProductManager {
       await this.saveProducts();
       console.log(`Producto con ID ${id} eliminado correctamente.`);
     } else {
-      console.error('No se encontró el producto cuyo ID es: ', id);
+      console.error('No se encontró el producto para eliminar cuyo ID es: ', id);
     }
   }
 
@@ -143,6 +117,8 @@ class ProductManager {
     );
   }
 }
+
+
 
 const ejecutar = async () => {
 
@@ -184,10 +160,10 @@ const ejecutar = async () => {
     stock: 40
   };
 
-  // productManager.addProduct(product1);
-  // productManager.addProduct(product2);
-  // productManager.addProduct(product3);
-  // productManager.addProduct(product4);
+// await productManager.addProduct(product1);
+// await productManager.addProduct(product2);
+// await productManager.addProduct(product3);
+// await productManager.addProduct(product4);
 
   //Muestra en consola todos los productos del json
   const allProducts = await productManager.getProducts();
@@ -208,3 +184,5 @@ const ejecutar = async () => {
 }
 
 ejecutar();
+
+module.exports = ProductManager;
