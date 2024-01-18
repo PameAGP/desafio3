@@ -2,11 +2,13 @@
   {
     "title": "Perrito",
     "description": "Muy tierno y peludo",
-    "price": 400,
+    "price": 800,
     "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
     "code": "P001",
     "stock": 5,
-    "id": 1
+    "status": true,
+    "category": "mascotas-comunes",
+    "id": "2942c09a-d351-4121-a426-cb371442c1df"
   },
   {
     "title": "Gatito",
@@ -15,15 +17,19 @@
     "thumbnail": "https://img.freepik.com/fotos-premium/lindo-gatito-gatito-bebe-animal_853115-5758.jpg",
     "code": "P002",
     "stock": 3,
-    "id": 2
+    "status": true,
+    "category": "mascotas-comunes",
+    "id": "20dc97ba-6e6f-47d4-bfc0-c41764b57af2"
   },
   {
-    "title": "Conejito",
-    "description": "Bolita de pelo saltarina y energica",
-    "price": 100,
-    "thumbnail": "https://www.tiendanimal.es/articulos/wp-content/uploads/2016/03/un-conejo-como-mascota-1200x900.jpg",
-    "code": "P004",
-    "stock": 40,
-    "id": 3
+    "title": "Iguana",
+    "description": "No parece mascota, pero digamos que lo es",
+    "price": 600,
+    "thumbnail": "https://www.tiendanimal.es/articulos/wp-content/uploads/2018/01/Las-iguanas-en-la-naturaleza-1-1200x900.jpg",
+    "code": "P003",
+    "stock": 2,
+    "status": true,
+    "category": "mascotas-exoticas",
+    "id": "ee99fdf8-f3df-4236-950b-1cfb5a93614c"
   }
 ]
