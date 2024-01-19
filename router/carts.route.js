@@ -79,7 +79,7 @@ class manageCart {
                     // Producto ya existe en el carrito, incrementa la cantidad
                     existingProducts[productIndex].quantity += updatedCart.quantity || 1;
                 } else {
-                    // Producto no existe en el carrito, agrégalo
+                    // Agrega el producto si no existe
                     existingProducts.push({
                         product: productId,
                         quantity: updatedCart.quantity || 1
@@ -89,7 +89,7 @@ class manageCart {
                 // Actualiza el carrito con los productos modificados/agregados
                 carritos[carritoIndex].products = existingProducts;
     
-                // Guarda los carritos actualizados en el archivo
+                // Guarda los carritos actualizados
                 await fs.writeFile(this.path, JSON.stringify(carritos, null, 2), 'utf8');
     
                 console.log(`Producto(s) agregado(s) al carrito ${id} correctamente.`);
