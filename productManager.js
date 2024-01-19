@@ -1,6 +1,11 @@
+// import {promises as fs} from 'fs'
+
 const fs = require('fs').promises;
 const express = require('express');
 const uuid4 = require('uuid4')
+
+
+
 
 class ProductManager {
   constructor(path) {
@@ -22,20 +27,22 @@ class ProductManager {
   }
 
   async addProduct(product) {
-    if (!this.isProductValid(product)) {
-      console.error('Operación inválida. Imposible agregar: ', product);
-      return;
+    const prod = JSON.parse(await fs.readFile(this.path, 'utf-8'));
+    const isValid = prod.find(existingProduct => existingProduct.code === product.code);
+
+    if (isValid) {
+      return false;
+    } else {
+      product.id = uuid4();
+      prod.push(product);
+      await fs.writeFile(this.path, JSON.stringify(prod));
+      return true;
     }
-
-    // product.id = this.productId++;
-    product.id = uuid4();
-    this.products.push(product);
-    console.log('Se agregó el siguiente producto correctamente: ', product);
-
-    // Guardar productos en el archivo después de agregar uno nuevo
-    await this.saveProducts();
   }
 
+  
+
+  //null, 2
 
   //Trae los productos del JSON
   async getProducts(limit) {
@@ -68,56 +75,61 @@ class ProductManager {
   }
 
   //Actualizar datos de un producto específico
-  async updateProduct(id, updatedFields) {
-    const products = await this.getProducts();
-    const index = products.findIndex(p => p.id === id);
+  async updateProduct(id, updatedProduct) {
+    const productos = JSON.parse(await fs.readFile(this.path, 'utf-8'));
 
-    if (index !== -1) {
-      console.log('Producto encontrado para actualizar:', products[index]);
-      products[index] = { ...products[index], ...updatedFields };
-      this.products = products;
-      await this.saveProducts();
+    const produ = productos.findIndex(produc => produc.id === id);
 
-      console.log(`Producto con ID ${id} actualizado correctamente.`);
+    if (produ !== -1) {
+        const produU = productos[produ];
+        produU.title = updatedProduct.title;
+        produU.description = updatedProduct.description;
+        produU.price = updatedProduct.price;
+        produU.code = updatedProduct.code;
+        produU.thumbnail = updatedProduct.thumbnail;
+        produU.status = updatedProduct.status;
+        produU.category = updatedProduct.category;
+
+        await fs.writeFile(this.path, JSON.stringify(productos, null, 2), 'utf-8');
+        return true;
     } else {
-      console.error('No se encontró el producto para actualizar cuyo ID es: ', id);
+        return false;
     }
-  }
+}
+
 
   //Eliminar producto
   async deleteProduct(id) {
-    const products = await this.getProducts();
-    const updatedProducts = products.filter(p => p.id !== id);
+    let productos = JSON.parse(await fs.readFile(this.path, 'utf-8'));
+    const produ = productos.find(produc => produc.id === id)
 
-    if (updatedProducts.length < products.length) {
-      this.products = updatedProducts;
-      await this.saveProducts();
-      console.log(`Producto con ID ${id} eliminado correctamente.`);
+    if (produ) {
+      // Cambia productos.filter(...) a productos = productos.filter(...)
+      productos = productos.filter(produc => produc.id !== id)
+      await fs.writeFile(this.path, JSON.stringify(productos, null, 2), 'utf-8');
+      return true;
     } else {
-      console.error('No se encontró el producto para eliminar cuyo ID es: ', id);
+      return false;
     }
-  }
+}
 
-  //Guarda en el json
+
   async saveProducts() {
     try {
-      await fs.writeFile(this.path, JSON.stringify(this.products, null, 2), 'utf8');
+      // Leer productos existentes del archivo
+      const existingProducts = await this.getProducts();
+
+      // Combina los productos existentes con los productos actuales de la instancia
+      const allProducts = [...existingProducts, ...this.products];
+
+      // Guardar la combinación en el archivo
+      await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2), 'utf8');
     } catch (error) {
       // Manejar errores de escritura de archivo
       console.error('Error al escribir en el archivo:', error);
     }
   }
-
-  //Comprueba si el producto es válido
-  isProductValid(product) {
-    const requiredFields = ['title', 'description', 'price', 'thumbnail', 'code', 'stock', 'status', 'category'];
-
-    return (
-      requiredFields.every(field => product[field]) &&
-      !this.products.some(p => p.code === product.code)
-      
-    );
-  }
+  
 }
 
 
@@ -170,10 +182,10 @@ const pruebaProductos = async () => {
     category: "mascotas-comunes"
   };
 
-  // await productManager.addProduct(product1);
-  // await productManager.addProduct(product2);
-  // await productManager.addProduct(product3);
-  // await productManager.addProduct(product4);
+  await productManager.addProduct(product1);
+  await productManager.addProduct(product2);
+  await productManager.addProduct(product3);
+  await productManager.addProduct(product4);
 
   //Muestra en consola todos los productos del json
   const allProducts = await productManager.getProducts();

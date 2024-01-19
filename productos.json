@@ -1,14 +1,14 @@
 [
   {
-    "title": "Perrito",
-    "description": "Muy tierno y peludo",
-    "price": 800,
+    "title": "Lorito 222",
+    "description": " bla bla bla",
+    "price": 1600,
     "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
     "code": "P001",
     "stock": 5,
     "status": true,
     "category": "mascotas-comunes",
-    "id": "2942c09a-d351-4121-a426-cb371442c1df"
+    "id": "8640b1f0-e3d9-4494-b4c8-4da4b7b0d3da"
   },
   {
     "title": "Gatito",
@@ -19,7 +19,7 @@
     "stock": 3,
     "status": true,
     "category": "mascotas-comunes",
-    "id": "20dc97ba-6e6f-47d4-bfc0-c41764b57af2"
+    "id": "36a395e5-c520-4cc0-a10c-88c09a6ce3bb"
   },
   {
     "title": "Iguana",
@@ -30,6 +30,37 @@
     "stock": 2,
     "status": true,
     "category": "mascotas-exoticas",
-    "id": "ee99fdf8-f3df-4236-950b-1cfb5a93614c"
+    "id": "35a84101-14b3-4f95-89f1-2f8220b1e2b9"
+  },
+  {
+    "title": "Lorito",
+    "description": "Bola de pelo bla bla bla",
+    "price": 1600,
+    "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
+    "code": "P004",
+    "stock": 5,
+    "status": true,
+    "category": "mascotas-comunes",
+    "id": "2569e87b-0433-4ca8-8336-d3763c9de5f7"
+  },
+  {
+    "title": "Lorito 2",
+    "description": " bla bla bla",
+    "price": 1600,
+    "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
+    "code": "P001",
+    "stock": 5,
+    "status": true,
+    "category": "mascotas-comunes"
+  },
+  {
+    "title": "Lorito 2",
+    "description": " bla bla bla",
+    "price": 1600,
+    "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
+    "code": "P001",
+    "stock": 5,
+    "status": true,
+    "category": "mascotas-comunes"
   }
 ]
