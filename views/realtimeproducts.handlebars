@@ -1,0 +1,42 @@
+<h1>Administrar</h1>
+
+<form onsubmit="return addProductVisual()" class="container">
+    <div class="mb-3">
+        <label for="title-product" class="form-label">Titulo:</label>
+        <input type="text" class="form-control" id="title-product" aria-describedby="emailHelp">
+        {{!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
+    </div>
+    <div class="mb-3">
+        <label for="description-product" class="form-label">Descripción:</label>
+        <input type="text" class="form-control" id="description-product" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="price-product" class="form-label">Precio:</label>
+        <input type="text" class="form-control" id="price-product" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="thum-product" class="form-label">Imagen:</label>
+        <input type="text" class="form-control" id="thum-product" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="code-product" class="form-label">Código:</label>
+        <input type="text" class="form-control" id="code-product" aria-describedby="emailHelp">
+    </div>
+        <div class="mb-3">
+        <label for="code-product" class="form-label">Cantidad en stock:</label>
+        <input type="text" class="form-control" id="stock-product" aria-describedby="emailHelp">
+    </div>
+        
+        <select id="category-product" class="form-select" aria-label="Default select example">
+            <option selected>Categoría</option>
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+            <option value="3">Niño/Niña</option>
+        </select>
+                <br>
+        <button type="submit" class="btn btn-primary">Cargar</button>
+
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"> </script>

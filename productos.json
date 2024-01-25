@@ -3,7 +3,7 @@
         "title": "Crema para Peinar Garnier Fructis Stop Caída",
         "description": " Formulada con naranja sanguina, vitamina c y taurina, que dejan tu cabello 98% más fuerte y reducen la caída. Esta crema le devolverá a tu cabello la fortaleza que necesita para contrarrestar la caída.",
         "price": 444,
-        "thumbnail": "https://pxccdn.ciudadano.news/ciudadano/122022/1670538467013/f608x342-38173-67896-15-jpg..webp?cw=984&ch=553&extw=jpg",
+        "thumbnail": "https://tiendacdn.farmashop.com.uy/media/catalog/product/cache/eca843527c380c9e466fdd093e56c37f/7/8/780959_1.jpg",
         "code": "P001",
         "stock": 21,
         "status": true,
@@ -102,11 +102,22 @@
         "title": "Gel fijador para niños Natura",
         "description": "Gel para cabello elaborado a partir de productos de origen natural, dermatologicamente testeado, con activos vegetales, sin alchol y vegano.",
         "price": 286,
-        "thumbnail": "https://staticco.natura.com/cdn/ff/NSJBmrCWLqM6XQVQE8BIBf8GQHAh69pe9mf9l7y8K-M/1698824429/public/products/29968_1_16.jpg",
+        "thumbnail": "https://staticco.natura.com/cdn/ff/4RjKcKjA9YzjO9H6QA-H78nbRsIUxZjIpxSJMKpSqVI/1704180938/public/products/29968_1_23.jpg",
         "code": "P010",
         "stock": 15,
         "status": true,
         "category": "nino",
         "id": "a3bcbc16-52cd-4c35-a4f6-3911fb4ed060"
+    },
+    {
+        "title": "Shampoo Johnson's Baby Manzanilla",
+        "description": "Shampoo de bebé suave y que protege sus ojitos",
+        "price": 450,
+        "thumbnail": "https://tiendacdn.farmashop.com.uy/media/catalog/product/cache/eca843527c380c9e466fdd093e56c37f/3/2/32545_10.jpg",
+        "code": "P011",
+        "stock": 30,
+        "status": true,
+        "category": "nino",
+        "id": "93e2c8eb-487c-4c87-a362-eddda318a164"
     }
 ]
