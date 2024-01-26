@@ -31,6 +31,11 @@ class ProductManager {
     if (isValid) {
       return false;
     } else {
+      if (product.stock >= 1) {
+        product.status = true;
+      } else {
+        product.status = false;
+      }
       product.id = uuid4();
       prod.push(product);
       await fs.writeFile(this.path, JSON.stringify(prod));
@@ -38,7 +43,7 @@ class ProductManager {
     }
   }
 
-  
+
 
   //null, 2
 
@@ -79,21 +84,21 @@ class ProductManager {
     const produ = productos.findIndex(produc => produc.id === id);
 
     if (produ !== -1) {
-        const produU = productos[produ];
-        produU.title = updatedProduct.title;
-        produU.description = updatedProduct.description;
-        produU.price = updatedProduct.price;
-        produU.code = updatedProduct.code;
-        produU.thumbnail = updatedProduct.thumbnail;
-        produU.status = updatedProduct.status;
-        produU.category = updatedProduct.category;
+      const produU = productos[produ];
+      produU.title = updatedProduct.title;
+      produU.description = updatedProduct.description;
+      produU.price = updatedProduct.price;
+      produU.code = updatedProduct.code;
+      produU.thumbnail = updatedProduct.thumbnail;
+      produU.status = updatedProduct.status;
+      produU.category = updatedProduct.category;
 
-        await fs.writeFile(this.path, JSON.stringify(productos, null, 2), 'utf-8');
-        return true;
+      await fs.writeFile(this.path, JSON.stringify(productos, null, 2), 'utf-8');
+      return true;
     } else {
-        return false;
+      return false;
     }
-}
+  }
 
 
   //Eliminar producto
@@ -109,7 +114,7 @@ class ProductManager {
     } else {
       return false;
     }
-}
+  }
 
 
   async saveProducts() {
@@ -127,7 +132,7 @@ class ProductManager {
       console.error('Error al escribir en el archivo:', error);
     }
   }
-  
+
 }
 
 

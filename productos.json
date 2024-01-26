@@ -108,5 +108,16 @@
     "status": true,
     "category": "nino",
     "id": "a3bcbc16-52cd-4c35-a4f6-3911fb4ed060"
+  },
+  {
+    "title": "Shampoo Johnson's Baby Manzanilla",
+    "description": "Shampoo de bebé suave y que protege sus ojitos",
+    "price": 450,
+    "thumbnail": "https://tiendacdn.farmashop.com.uy/media/catalog/product/cache/eca843527c380c9e466fdd093e56c37f/3/2/32545_10.jpg",
+    "code": "P011",
+    "stock": 30,
+    "category": "nino",
+    "status": true,
+    "id": "86b91a55-8292-4936-89a7-7d1d474fa071"
   }
 ]
