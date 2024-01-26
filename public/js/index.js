@@ -3,6 +3,7 @@ const socket = io()
 
 socket.on('mensaje1', (data) => {
 console.log(data)
+socket.emit('mansaje2', 'Entrando al servidor')
 })
 
 const addProductVisual = () => {
@@ -13,10 +14,8 @@ const addProductVisual = () => {
       thumbnail: document.getElementById('thum-product').value,
       code: document.getElementById('code-product').value,
       stock: document.getElementById('stock-product').value,
-      category: document.getElementById('category-product'),value
     }
-    
-    console.log(prod)
+    console.table(prod)
 
     return false
   }

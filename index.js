@@ -34,7 +34,11 @@ app.use ('/api/carts', cartRouters)
 const io = new Server(server)
 io.on('connection', (socket)=> {
   console.log('User Connected')
-  socket.emit('mensaje1', 'Hola usuario')
+  socket.emit('mensaje1', 'Bienvenido, usuario')
+
+  socket.on('mensaje2', (data) => {
+    console.log(data)
+  })
 })
 
 server.listen(PORT, () => {
