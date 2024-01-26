@@ -11,7 +11,7 @@ const app = express();
 const PORT = 8080
 const server = http.createServer(app);
 
-
+let produ = []
 //Public
 app.use(express.static(__dirname+'/public'))
 
@@ -32,12 +32,18 @@ app.use ('/api/carts', cartRouters)
 
 //socket
 const io = new Server(server)
-io.on('connection', (socket)=> {
-  console.log('User Connected')
-  socket.emit('mensaje1', 'Bienvenido, usuario')
 
-  socket.on('mensaje2', (data) => {
-    console.log(data)
+
+io.on('connection', (socket)=> {
+    // socket.emit('mensaje1', 'Bienvenido, usuario')
+
+  // socket.on('mensaje2', (data) => {
+  //   console.log(data)
+  // })
+
+  socket.on('newProd', (data) => {
+    // console.log(data)
+    socket.emit("newProd2", data)
   })
 })
 
